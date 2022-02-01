@@ -12,7 +12,7 @@
       />
 
       <div class="HappyBirthday-Greetings">
-        <h1 class="HappyBirthday-Title">Happy Birthday!</h1>
+        <h1 class="HappyBirthday-Title">Happy Birthday To You!</h1>
         <h1 class="HappyBirthday-Name">{{ celebrantDisplayName }}</h1>
       </div>
 

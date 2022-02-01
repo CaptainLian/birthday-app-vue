@@ -1,5 +1,5 @@
 <template>
-   <audio autoplay controls loop>
+   <audio autoplay controls loop volume="0.5">
     <source src="../assets/audios/donnalyn-hbd.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
