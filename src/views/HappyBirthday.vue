@@ -82,12 +82,14 @@ export default defineComponent({
     }
 
     &-Music {
-      position: relative;
+      position: absolute;
       bottom: 0;
+      left: 0;
+      margin: 12px;
     }
 
     &-Hamster {
-      object-fit: cover;
+      object-fit: scale-down;
       margin-bottom: 24px;
     }
 

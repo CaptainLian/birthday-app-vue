@@ -32,11 +32,12 @@ export default defineComponent({
 
   methods: {
     onClickYes() {
-      const nameUri = atob(this.celebrant ?? '');
+      const nameUri = decodeURIComponent(this.celebrant ?? '');
+      const name = atob(nameUri);
 
       this.$router.push({
         path: '/birthday',
-        query: { name: nameUri },
+        query: { name },
       });
     },
 
