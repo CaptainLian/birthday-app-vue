@@ -33,17 +33,16 @@ export default defineComponent({
   methods: {
     onClickYes() {
       const nameUri = atob(this.celebrant ?? '');
-      const name = decodeURIComponent(nameUri);
 
       this.$router.push({
         path: '/birthday',
-        query: { name },
+        query: { name: nameUri },
       });
     },
 
     onClickNo() {
       // eslint-disable-next-line no-alert
-      alert('🛑 You\'re not supposed to be here 🛑');
+      alert('🛑 You\'re not supposed to be here. Please contact your system administrator 🛑');
     },
   },
 
