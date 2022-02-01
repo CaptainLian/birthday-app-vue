@@ -13,7 +13,7 @@
 
       <div class="HappyBirthday-Greetings">
         <h1 class="HappyBirthday-Title">Happy Birthday!</h1>
-        <h1 class="HappyBirthday-Name">{{ celebrant }}</h1>
+        <h1 class="HappyBirthday-Name">{{ celebrantDisplayName }}</h1>
       </div>
 
       <div class="HappyBirthday-Music">
@@ -36,7 +36,11 @@ export default defineComponent({
   components: {
     BirthdayMusicPlayer,
   },
-
+  computed: {
+    celebrantDisplayName() {
+      return decodeURIComponent(this.celebrant || '');
+    },
+  },
   setup(props) {
     useHead({
       title: computed(() => `Happy Birthday ${props.celebrant}!`),
