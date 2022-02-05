@@ -1,4 +1,8 @@
 <template>
+  <div class="HappyBirthday-Fireworks">
+    <FireworksBackground />
+  </div>
+
   <div class="HappyBirthday-Background"></div>
 
   <div class="HappyBirthday-Container">
@@ -27,6 +31,7 @@
 import { computed, defineComponent } from 'vue';
 import { useHead } from '@vueuse/head';
 import BirthdayMusicPlayer from '../components/BirthdayMusicPlayer.vue';
+import FireworksBackground from '../components/FireworksBackground.vue';
 
 export default defineComponent({
   name: 'HappyBirthday',
@@ -35,6 +40,7 @@ export default defineComponent({
   },
   components: {
     BirthdayMusicPlayer,
+    FireworksBackground,
   },
   computed: {
     celebrantDisplayName() {
@@ -43,7 +49,7 @@ export default defineComponent({
   },
   setup(props) {
     useHead({
-      title: computed(() => `Happy Birthday ${props.celebrant}!`),
+      title: computed(() => `Happy Birthday ${decodeURIComponent(props.celebrant || '')}!`),
       meta: [
         {
           name: 'description',
@@ -56,7 +62,17 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
+  @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+  // @import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+
   .HappyBirthday {
+    &-Fireworks {
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 40%;
+      position: absolute;
+    }
     &-Background {
       background-color: lightblue;
       background-image: url('../assets/images/birthday-balloons-cake.jpg');
@@ -93,12 +109,14 @@ export default defineComponent({
       margin-bottom: 24px;
     }
 
-    &-Title,&-Name {
-      font-family: Brush Script MT, Brush Script Std, cursive;
-      -webkit-font-smoothing: antialiased;
+    &-Title, &-Name {
       -moz-osx-font-smoothing: grayscale;
-      text-align: center;
+      -webkit-font-smoothing: antialiased;
       color: #2c3e50;
+      // font-family: 'Cookie', cursive;
+      font-family: 'Dancing Script', cursive;
+      font-size: 5em;
+      text-align: center;
     }
   };
 </style>

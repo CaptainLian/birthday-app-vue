@@ -6,7 +6,6 @@
       height="220"
       src="https://c.tenor.com/OBc0ZE8Wf8UAAAAM/hmm-thinking.gif"
       title="Thinking of you eyyy LMAO"
-      alt="Thinking of you eyyy LMAO"
     />
 
     <div class="IsBirthdayToday-Question">
@@ -37,7 +36,9 @@ export default defineComponent({
 
       this.$router.push({
         path: '/birthday',
-        query: { name },
+        query: {
+          name: encodeURIComponent(name),
+        },
       });
     },
 
